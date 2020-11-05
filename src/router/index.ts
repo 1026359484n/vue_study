@@ -1,30 +1,59 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Home from "@/views/Home.vue";
+import Home from "@/components/Home.vue";
+import About from "@/components/About.vue";
+import AntDesignTest from "@/components/AntDesignTest.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
+import Layout from "@/views/Layout.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "Layout",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "HomePage",
+        component: Home
+      }
+    ]
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "@/views/About.vue")
+    path: "/device",
+    name: "Device",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "DeviceList",
+        component: About
+      }
+    ]
   },
   {
-    path: "/ant",
-    name: "AntDesignTest",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-        import(/* webpackChunkName: "about" */ "@/views/AntDesignTest.vue")
-  }
+    path: "/user",
+    name: "User",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "UserList",
+        component: HelloWorld
+      }
+    ]
+  },
+  {
+    path: "/websocket",
+    name: "Websocket",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "AntDesignTest",
+        component: AntDesignTest
+      }
+    ]
+  },
 ];
 
 const router = createRouter({
