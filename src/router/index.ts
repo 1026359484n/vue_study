@@ -3,7 +3,8 @@ import Home from "@/components/Home.vue";
 import About from "@/components/About.vue";
 import AntDesignTest from "@/components/AntDesignTest.vue";
 import HelloWorld from "@/components/HelloWorld.vue";
-import Layout from "@/views/Layout.vue";
+import Layout from "@/layout/Layout.vue";
+import DataTable from "@/views/DataTable.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -51,6 +52,18 @@ const routes: Array<RouteRecordRaw> = [
         path: "",
         name: "AntDesignTest",
         component: AntDesignTest
+      }
+    ]
+  },
+  {
+    path: "/data",
+    name: "Data",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "DataTable",
+        component: DataTable
       }
     ]
   },

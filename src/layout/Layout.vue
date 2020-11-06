@@ -2,7 +2,8 @@
   <a-layout id="components-layout-demo-custom-trigger">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
-      <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
+      <sider-left/>
+      <!--<a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
         <router-link to="/">
           <a-menu-item key="1">
             <user-outlined />
@@ -27,11 +28,11 @@
             <span>Websocket</span>
           </a-menu-item>
         </router-link>
-      </a-menu>
+      </a-menu>-->
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
-        <menu-unfold-outlined
+        <!--<menu-unfold-outlined
           v-if="collapsed"
           class="trigger"
           @click="() => (collapsed = !collapsed)"
@@ -40,7 +41,15 @@
           v-else
           class="trigger"
           @click="() => (collapsed = !collapsed)"
-        />
+        />-->
+        <a-button
+          type="primary"
+          @click="toggleCollapsed"
+          style="margin-bottom: 16px"
+        >
+          <MenuUnfoldOutlined v-if="collapsed" />
+          <MenuFoldOutlined v-else />
+        </a-button>
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -64,24 +73,37 @@ import {
   MenuFoldOutlined
 } from "@ant-design/icons-vue";
 import { defineComponent } from "vue";
+import SiderLeft from "./SiderLeft.vue";
 
 export default defineComponent({
   components: {
-    UserOutlined,
+    /*UserOutlined,
     VideoCameraOutlined,
-    UploadOutlined,
+    UploadOutlined,*/
+    SiderLeft,
     MenuUnfoldOutlined,
     MenuFoldOutlined
   },
   data() {
     return {
       selectedKeys: ["1"],
-      collapsed: false
+      collapsed: false,
+      openKeys: ["sub1"],
+      preOpenKeys: ["sub1"]
     };
+  },
+  watch: {
+    openKeys(val, oldVal) {
+      this.preOpenKeys = oldVal;
+    }
   },
   methods: {
     handleLink() {
       //router.push
+    },
+    toggleCollapsed() {
+      this.collapsed = !this.collapsed;
+      this.openKeys = this.collapsed ? [] : this.preOpenKeys;
     }
   }
 });
