@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <a-menu
     v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys"
