@@ -5,6 +5,7 @@
     mode="inline"
     theme="dark"
     :inline-collapsed="collapsed"
+    style="height: 775px"
   >
     <a-menu-item key="1">
       <router-link to="/device">

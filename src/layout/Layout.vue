@@ -30,8 +30,8 @@
         </router-link>
       </a-menu>-->
     </a-layout-sider>
-    <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
+    <a-layout >
+      <a-layout-header style="background: #fff; padding: 0" id="header-item">
         <!--<menu-unfold-outlined
           v-if="collapsed"
           class="trigger"
@@ -42,14 +42,22 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />-->
-        <a-button
-          type="primary"
-          @click="toggleCollapsed"
-          style="margin-bottom: 16px"
-        >
-          <MenuUnfoldOutlined v-if="collapsed" />
-          <MenuFoldOutlined v-else />
-        </a-button>
+        <a-row>
+
+          <a-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+            <a-button
+              type="primary"
+              @click="toggleCollapsed"
+              style="margin-bottom: 16px"
+            >
+              <MenuUnfoldOutlined v-if="collapsed" />
+              <MenuFoldOutlined v-else />
+            </a-button>
+          </a-col>
+          <a-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
+            <avatar-item />
+          </a-col>
+        </a-row>
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -74,6 +82,7 @@ import {
 } from "@ant-design/icons-vue";
 import { defineComponent } from "vue";
 import SiderLeft from "./SiderLeft.vue";
+import AvatarItem from "@/layout/AvatarItem.vue";
 
 export default defineComponent({
   components: {
@@ -81,6 +90,7 @@ export default defineComponent({
     VideoCameraOutlined,
     UploadOutlined,*/
     SiderLeft,
+    AvatarItem,
     MenuUnfoldOutlined,
     MenuFoldOutlined
   },
@@ -108,7 +118,7 @@ export default defineComponent({
   }
 });
 </script>
-<style>
+<style lang="less">
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;
@@ -126,4 +136,26 @@ export default defineComponent({
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+
+#header-item {
+  padding: 0;
+  background: #fff;
+  .ant-col + .ant-col {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 @vab-padding;
+  }
+  .trigger {
+    height: @vab-header-height;
+    padding: 0 @vab-padding;
+    font-size: 18px;
+    line-height: @vab-header-height;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover {
+      color: #1890ff;
+    }
+  }
+}
+
 </style>

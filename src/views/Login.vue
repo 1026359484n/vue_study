@@ -39,14 +39,11 @@
       </a-col>
     </a-row>
     <div class="login-container-tips">
-      基于vue{{ dependencies["vue"] }}
-      + ant-design-vue
-      {{ dependencies["ant-design-vue"] }}开发
+      基于vue3.0 + ant-design-vue 开发
     </div>
   </div>
 </template>
 <script lang="ts">
-  import { dependencies, devDependencies } from "../../package.json";
   import { mapActions, mapGetters } from "vuex";
   import qs from "qs";
   import { UserOutlined, LockOutlined } from "@ant-design/icons-vue";
@@ -71,9 +68,7 @@
           // eslint-disable-next-line @typescript-eslint/camelcase
           grant_type: "password"
         },
-        redirect: undefined,
-        dependencies: dependencies,
-        devDependencies: devDependencies
+        redirect: undefined
       };
     },
     computed: {
