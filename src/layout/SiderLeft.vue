@@ -35,28 +35,31 @@
       </router-link>
     </a-menu-item>
 
+    <a-menu-item key="5">
+      <router-link to="/charts">
+        <BarChartOutlined />
+        <span>图表</span>
+      </router-link>
+    </a-menu-item>
+
     <a-sub-menu key="sub1">
       <template v-slot:title>
         <span><MailOutlined /><span>Navigation One</span></span>
       </template>
-      <a-menu-item key="5">Option 5</a-menu-item>
       <a-menu-item key="6">Option 6</a-menu-item>
       <a-menu-item key="7">Option 7</a-menu-item>
       <a-menu-item key="8">Option 8</a-menu-item>
+      <a-menu-item key="9">Option 9</a-menu-item>
     </a-sub-menu>
     <a-sub-menu key="sub2">
       <template v-slot:title>
         <span><AppstoreOutlined /><span>Navigation Two</span></span>
       </template>
-      <a-menu-item key="9">Option 9</a-menu-item>
       <a-menu-item key="10">Option 10</a-menu-item>
+      <a-menu-item key="11">Option 11</a-menu-item>
       <a-sub-menu key="sub3" title="Submenu">
-        <a-menu-item key="11">
-          Option 11
-        </a-menu-item>
-        <a-menu-item key="12">
-          Option 12
-        </a-menu-item>
+        <a-menu-item key="12"> Option 12 </a-menu-item>
+        <a-menu-item key="13"> Option 13 </a-menu-item>
       </a-sub-menu>
     </a-sub-menu>
   </a-menu>
@@ -68,7 +71,8 @@ import {
   MailOutlined,
   DesktopOutlined,
   InboxOutlined,
-  AppstoreOutlined
+  AppstoreOutlined,
+  BarChartOutlined,
 } from "@ant-design/icons-vue";
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -77,27 +81,28 @@ export default defineComponent({
     MailOutlined,
     DesktopOutlined,
     InboxOutlined,
-    AppstoreOutlined
+    AppstoreOutlined,
+    BarChartOutlined,
   },
   data() {
     return {
       collapsed: false,
       selectedKeys: ["1"],
       openKeys: ["sub1"],
-      preOpenKeys: ["sub1"]
+      preOpenKeys: ["sub1"],
     };
   },
   watch: {
     openKeys(val, oldVal) {
       this.preOpenKeys = oldVal;
-    }
+    },
   },
   methods: {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
       this.openKeys = this.collapsed ? [] : this.preOpenKeys;
-    }
-  }
+    },
+  },
 });
 </script>
 

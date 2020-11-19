@@ -1,7 +1,8 @@
 import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
 import Home from "@/components/Home.vue";
-import About from "@/components/About.vue";
-import AntDesignTest from "@/components/AntDesignTest.vue";
+import DeviceTable from "@/views/DeviceTable.vue";
+import ChartPage from "@/views/ChartPage.vue";
+import WebsocketTest from "@/views/WebsocketTest.vue";
 import HelloWorld from "@/components/HelloWorld.vue";
 import Layout from "@/layout/Layout.vue";
 import Login from "@/views/Login.vue";
@@ -17,14 +18,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "Layout",
-    component: Layout,
-    children: [
-      {
-        path: "",
-        name: "HomePage",
-        component: Home
-      }
-    ]
+    redirect: "/device"
   },
   {
     path: "/device",
@@ -34,7 +28,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: "",
         name: "DeviceList",
-        component: About
+        component: DeviceTable
       }
     ]
   },
@@ -57,8 +51,20 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: "",
-        name: "AntDesignTest",
-        component: AntDesignTest
+        name: "WebsocketTest",
+        component: WebsocketTest
+      }
+    ]
+  },
+  {
+    path: "/charts",
+    name: "Charts",
+    component: Layout,
+    children: [
+      {
+        path: "",
+        name: "Charts",
+        component: ChartPage
       }
     ]
   },

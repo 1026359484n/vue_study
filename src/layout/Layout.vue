@@ -74,7 +74,7 @@
 </template>
 <script lang="ts">
 import {
-  UserOutlined,
+  //UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
   MenuUnfoldOutlined,
