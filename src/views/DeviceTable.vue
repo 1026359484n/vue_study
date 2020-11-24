@@ -137,7 +137,7 @@ export default defineComponent({
     onMounted(async () => {
       onSearch({ deviceName: null });
     });
-    const cacheData = data.map((item) => ({ ...item }));
+    const cacheData = data.map(item => ({ ...item }));
     return {
       params,
       data,
