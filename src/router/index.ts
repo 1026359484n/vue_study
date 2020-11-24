@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory, RouteRecordRaw} from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Home from "@/components/Home.vue";
 import DeviceTable from "@/views/DeviceTable.vue";
 import ChartPage from "@/views/ChartPage.vue";
@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/login",
     name: "Login",
-    component: Login,
+    component: Login
   },
   {
     path: "/",
@@ -79,7 +79,7 @@ const routes: Array<RouteRecordRaw> = [
         component: DataTable
       }
     ]
-  },
+  }
 ];
 
 const router = createRouter({
@@ -91,12 +91,12 @@ router.beforeEach(async (to, from, next) => {
   //此处获取登陆的用户信息，可以按照自己的方法获取，此处暂时用localStorage里面获取
   const token = localStorage.token;
   //判断是否存在用户信息、或者该页面是否需要登陆
-  if (token||to.path === '/login') {
+  if (token || to.path === "/login") {
     //如果能获取到用户信息，说明用户已经登陆了，或者该页面不需要登陆也能进入就直接放行进入该页面
-    if (to.path === '/login') {
+    if (to.path === "/login") {
       next();
     } else {
-      const role = store.getters['role']
+      const role = store.getters["role"];
       /*if (role) {
         next()
       } else {
@@ -107,7 +107,6 @@ router.beforeEach(async (to, from, next) => {
         })
         next({...to, replace: true})
       }*/
-
     }
     next();
   } else {
@@ -120,6 +119,5 @@ router.beforeEach(async (to, from, next) => {
     });
   }
 });
-
 
 export default router;

@@ -10,29 +10,29 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent,ref } from 'vue';
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  setup(){
+  setup() {
     const current = ref(1);
     const pageSize = ref(20);
     return {
       current,
       pageSize
-    }
+    };
   },
   watch: {
     pageSize(val) {
-      console.log('pageSize', val);
+      console.log("pageSize", val);
     },
     current(val) {
-      console.log('current', val);
-    },
+      console.log("current", val);
+    }
   },
   methods: {
     onShowSizeChange(current: number, pageSize: number) {
       console.log(current, pageSize);
-    },
-  },
+    }
+  }
 });
 </script>

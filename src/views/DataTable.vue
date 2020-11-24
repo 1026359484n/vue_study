@@ -33,37 +33,37 @@ const columns = [
   {
     title: "设备时间",
     dataIndex: "time",
-    width: 250,
+    width: 250
   },
   {
     title: "设备编号",
     dataIndex: "deviceName",
-    width: 300,
+    width: 300
   },
   {
     title: "数据类型",
     dataIndex: "msgType",
-    width: 200,
+    width: 200
   },
   {
     title: "说明",
     dataIndex: "address",
-    width: 200,
-  },
+    width: 200
+  }
 ];
 
 export default defineComponent({
   name: "DataTable",
   setup(props) {
     const data: Array<any> = reactive([]);
-    const timeChange = function (value: Date, dateString: string) {
+    const timeChange = function(value: Date, dateString: string) {
       console.log("Selected Time: ", value);
       console.log("Formatted Selected Time: ", dateString);
     };
-    const onTimeOk = function (value: any) {
+    const onTimeOk = function(value: any) {
       console.log("onOk: ", value);
     };
-    const onSearch = async function (value: string) {
+    const onSearch = async function(value: string) {
       const resp = await getData("dose", value);
       const results: Array<any> = resp.data.body.result;
       if (results == null) {
@@ -79,7 +79,7 @@ export default defineComponent({
           time: value[0],
           deviceName: value[1],
           msgType: value[3],
-          address: `London, Park Lane no. ${i}`,
+          address: `London, Park Lane no. ${i}`
         });
       }
       return data;
@@ -88,17 +88,16 @@ export default defineComponent({
       data,
       onSearch,
       onTimeOk,
-      timeChange,
+      timeChange
     };
   },
   data() {
     return {
       deviceName: "",
-      columns,
+      columns
     };
-  },
+  }
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -102,7 +102,7 @@ export default defineComponent({
     });
     const loading = ref<boolean>(false);
     const data: Array<any> = reactive([]);
-    const onSearch = async (qo: DeviceQo | { deviceName: string|null }) => {
+    const onSearch = async (qo: DeviceQo | { deviceName: string | null }) => {
       params.deviceName = qo.deviceName;
       params.pageNum = 1;
       const resp = await deviceList(params);

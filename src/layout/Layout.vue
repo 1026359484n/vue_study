@@ -2,7 +2,7 @@
   <a-layout id="components-layout-demo-custom-trigger">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
-      <sider-left/>
+      <sider-left />
       <!--<a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
         <router-link to="/">
           <a-menu-item key="1">
@@ -30,7 +30,7 @@
         </router-link>
       </a-menu>-->
     </a-layout-sider>
-    <a-layout >
+    <a-layout>
       <a-layout-header style="background: #fff; padding: 0" id="header-item">
         <!--<menu-unfold-outlined
           v-if="collapsed"
@@ -43,7 +43,6 @@
           @click="() => (collapsed = !collapsed)"
         />-->
         <a-row>
-
           <a-col :xs="12" :sm="12" :md="12" :lg="12" :xl="12">
             <a-button
               type="primary"
@@ -157,5 +156,4 @@ export default defineComponent({
     }
   }
 }
-
 </style>

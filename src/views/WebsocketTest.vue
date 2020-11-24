@@ -58,7 +58,7 @@ export default defineComponent({
 
       //建立连接，订阅主题
       this.stompClient.connect(this.headers, (frame?: Frame) => {
-        console.log(frame?.command)
+        console.log(frame?.command);
         this.stompClient.subscribe("/user/topic/message", (val: Message) => {
           console.log("send to user");
           console.log(val.body);

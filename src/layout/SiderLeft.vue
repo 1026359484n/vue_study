@@ -72,7 +72,7 @@ import {
   DesktopOutlined,
   InboxOutlined,
   AppstoreOutlined,
-  BarChartOutlined,
+  BarChartOutlined
 } from "@ant-design/icons-vue";
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -82,27 +82,27 @@ export default defineComponent({
     DesktopOutlined,
     InboxOutlined,
     AppstoreOutlined,
-    BarChartOutlined,
+    BarChartOutlined
   },
   data() {
     return {
       collapsed: false,
       selectedKeys: ["1"],
       openKeys: ["sub1"],
-      preOpenKeys: ["sub1"],
+      preOpenKeys: ["sub1"]
     };
   },
   watch: {
     openKeys(val, oldVal) {
       this.preOpenKeys = oldVal;
-    },
+    }
   },
   methods: {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
       this.openKeys = this.collapsed ? [] : this.preOpenKeys;
-    },
-  },
+    }
+  }
 });
 </script>
 
